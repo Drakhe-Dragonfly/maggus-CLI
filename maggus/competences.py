@@ -1,14 +1,18 @@
 #from [file] import [things] #variables global dans lequel écrire
+from dieux import Divinités
+
 
 class Compétences:
-  def __init__(self, name, difficulty, prérequis=False, bonus_dict, spé, baga, dons_regards_dict, avantage_faiblesse_dict, lunes, starting_exp, combative_stats, meta_datas):
-    self.name = name
+  def __init__(self, names, difficulty, prérequis, bonus_dict, spé, baga, dons_regards_dict, avantage_faiblesse_dict, lunes, starting_exp, combative_stats, meta_datas):
+    self.names = names
     self.diff = difficulty
     #self.prérequis = prérequis
     #self.bonus = bonus_dict
     #self.spé = spé
-    self.baga = baga #[BOOL, BOOL]
-    #dons_regards
+    self.baga = baga #(BOOL (yin), BOOL (yang))
+    self.don_regards = dons_regards_dict
+    for dieu in dons_regards_dict["dieux"]:
+      dieu.ajout_comp(self.name["fr"])
     #avantages_faiblesses
     self.lunes_mod = lunes #BOOL
     self.pex = starting_exp

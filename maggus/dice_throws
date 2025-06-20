@@ -1,0 +1,33 @@
+from config import *
+import random
+
+def dice_handler(type=None):
+    result = 0
+    if type == None:
+        d1 = random.randint(1, 10)
+        d2 = random.randint(1, 10)
+        if d1 == 10:
+            d1 += maggusD10()
+        elif d1 == 1:
+            d1 -= maggusD10()
+        if d2 == 10:
+            d2 += maggusD10()
+        elif d2 == 1:
+            d2 -= maggusD10()
+        result = (d1 + d2)-10
+        return result
+    else:
+        raise Exception("type de jet non reconnu")
+
+def maggusD10(depth=0):
+    result = 0
+    dice_res = random.randint(1, 10)
+    result += dice_res
+    if depth < recursion_jet_dé:
+        if dice_res == 10:
+            result += maggusD10(depth+1)
+            return result
+        else:
+            return result
+    else:
+        return result

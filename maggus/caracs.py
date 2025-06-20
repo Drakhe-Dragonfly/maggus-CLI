@@ -1,6 +1,6 @@
 #from [file] import [thing]
 
-class Caracs:
+class Caracs():
     def __init__(self, dim, race_base, signes=False, faiblesses=False, initial_exp=0):
         self.race_base = race_base
         self.pex = initial_exp
